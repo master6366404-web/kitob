@@ -4,241 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitoblar Olami | Kutubxona</title>
+    <title>Elektron kutubxona</title>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            background: #f4f7f5;
-            color: #24352b;
+            background: #f0f2f5;
         }
 
         header {
             background: #164e3b;
             color: white;
-            padding: 22px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-        }
-
-        nav a:hover {
-            color: #a7f3c5;
-        }
-
-        .hero {
             text-align: center;
-            padding: 65px 20px;
-            background: linear-gradient(135deg, #164e3b, #3a8060);
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 17px;
-            margin-bottom: 25px;
-        }
-
-        .search-box {
-            display: flex;
-            max-width: 550px;
-            margin: auto;
-        }
-
-        .search-box input {
-            flex: 1;
-            min-width: 0;
-            padding: 14px;
-            border: none;
-            border-radius: 8px 0 0 8px;
-            font-size: 16px;
-        }
-
-        .search-box button {
-            padding: 14px 20px;
-            border: none;
-            background: #f2c66d;
-            color: #24352b;
-            cursor: pointer;
-            border-radius: 0 8px 8px 0;
-            font-weight: bold;
+            padding: 20px;
         }
 
         .container {
-            width: 84%;
-            max-width: 1200px;
-            margin: 40px auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 29px;
-        }
-
-        .categories {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 30px;
-        }
-
-        .category {
-            border: 1px solid #164e3b;
-            background: white;
-            color: #164e3b;
-            padding: 10px 18px;
-            border-radius: 22px;
-            cursor: pointer;
-        }
-
-        .category:hover,
-        .category.active {
-            background: #164e3b;
-            color: white;
-        }
-
-        .books {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 24px;
+            max-width: 1000px;
+            margin: 25px auto;
+            padding: 15px;
         }
 
         .book {
             background: white;
+            padding: 20px;
             border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px #00000012;
-            transition: transform 0.2s;
+            box-shadow: 0 3px 12px #0002;
         }
 
-        .book:hover {
-            transform: translateY(-5px);
-        }
-
-        .book img {
-            width: 100%;
-            height: 235px;
-            object-fit: cover;
-            background: #e0e8e2;
-        }
-
-        .book-info {
-            padding: 16px;
-        }
-
-        .book-info h3 {
-            margin-bottom: 9px;
-            font-size: 18px;
-        }
-
-        .author {
-            color: #68766d;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-
-        .genre {
-            display: inline-block;
-            background: #e4f3e9;
+        .book h2 {
             color: #164e3b;
-            padding: 5px 9px;
-            border-radius: 5px;
-            font-size: 12px;
-            margin-bottom: 14px;
         }
 
-        .details {
-            display: block;
-            width: 100%;
-            padding: 11px;
+        .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .buttons a {
+            display: inline-block;
             background: #164e3b;
             color: white;
-            text-align: center;
-            border: none;
+            text-decoration: none;
+            padding: 12px 18px;
             border-radius: 6px;
-            cursor: pointer;
         }
 
-        .details:hover {
-            background: #267454;
+        iframe {
+            width: 100%;
+            height: 650px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
         }
 
-        #noResults {
-            text-align: center;
-            margin: 30px;
-            display: none;
-        }
-
-        .about {
-            background: #e5efe8;
-            padding: 40px 20px;
-            text-align: center;
-            line-height: 1.8;
-        }
-
-        footer {
-            background: #123c2e;
-            color: white;
-            text-align: center;
-            padding: 23px;
-        }
-
-        @media (max-width: 900px) {
-            .books {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .container {
-                width: 90%;
-            }
-        }
-
-        @media (max-width: 500px) {
-            header {
-                justify-content: center;
-                text-align: center;
-            }
-
-            nav a {
-                margin: 0 7px;
-                font-size: 14px;
-            }
-
-            .hero h1 {
-                font-size: 29px;
-            }
-
-            .books {
-                grid-template-columns: 1fr;
-            }
-
-            .book img {
-                height: 280px;
+        @media (max-width: 600px) {
+            iframe {
+                height: 500px;
             }
         }
     </style>
@@ -246,263 +70,32 @@
 
 <body>
 
-    <header>
-        <div class="logo">📚 Kitoblar Olami</div>
-        <nav>
-            <a href="#home">Bosh sahifa</a>
-            <a href="#books">Kitoblar</a>
-            <a href="#about">Biz haqimizda</a>
-        </nav>
-    </header>
+<header>
+    <h1>📚 Elektron kutubxona</h1>
+    <p>Kitoblarni PDF shaklida o‘qing</p>
+</header>
 
-    <section class="hero" id="home">
-        <h1>Bilim sari birinchi qadam!</h1>
-        <p>Sevimli kitoblaringizni toping va yangi olamlarni kashf eting.</p>
+<div class="container">
+    <div class="book">
+        <h2>📖 Mening kitobim</h2>
+        <p>Kitobni quyidagi oynada o‘qishingiz mumkin.</p>
 
-        <div class="search-box">
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Kitob yoki muallif nomini yozing..."
-                aria-label="Kitob qidirish"
-            >
-            <button onclick="searchBooks()">Qidirish</button>
-        </div>
-    </section>
+        <div class="buttons">
+            <a href="kitob.pdf" target="_blank">
+                PDFni ochish
+            </a>
 
-    <main class="container" id="books">
-        <h2 class="section-title">📖 Bizning kitoblar</h2>
-
-        <div class="categories">
-            <button class="category active" onclick="filterBooks('Barchasi', this)">
-                Barchasi
-            </button>
-            <button class="category" onclick="filterBooks('Roman', this)">
-                Romanlar
-            </button>
-            <button class="category" onclick="filterBooks('Tarix', this)">
-                Tarix
-            </button>
-            <button class="category" onclick="filterBooks('Ilm', this)">
-                Ilm-fan
-            </button>
-            <button class="category" onclick="filterBooks('Bolalar', this)">
-                Bolalar
-            </button>
+            <a href="kitob.pdf" download>
+                PDFni yuklab olish
+            </a>
         </div>
 
-        <div class="books" id="bookList">
-
-            <article class="book" data-genre="Roman">
-                <img
-                    src="https://covers.openlibrary.org/b/title/Mehrobdan-chayon-L.jpg"
-                    alt="Mehrobdan chayon kitobi"
-                    onerror="this.style.display='none'"
-                >
-                <div class="book-info">
-                    <span class="genre">Roman</span>
-                    <h3>Mehrobdan chayon</h3>
-                    <p class="author">Abdulla Qodiriy</p>
-                    <button class="details"
-                        onclick="showDetails('Mehrobdan chayon', 'Abdulla Qodiriy', 'O‘zbek adabiyotining mashhur tarixiy romani.')">
-                        Batafsil
-                    </button>
-                </div>
-            </article>
-
-            <article class="book" data-genre="Roman">
-                <img
-                    src="https://covers.openlibrary.org/b/title/O'tkan-kunlar-L.jpg"
-                    alt="O‘tkan kunlar kitobi"
-                    onerror="this.style.display='none'"
-                >
-                <div class="book-info">
-                    <span class="genre">Roman</span>
-                    <h3>O‘tkan kunlar</h3>
-                    <p class="author">Abdulla Qodiriy</p>
-                    <button class="details"
-                        onclick="showDetails('O‘tkan kunlar', 'Abdulla Qodiriy', 'Otabek va Kumush muhabbati haqida hikoya qiluvchi roman.')">
-                        Batafsil
-                    </button>
-                </div>
-            </article>
-
-            <article class="book" data-genre="Roman">
-                <img
-                    src="https://covers.openlibrary.org/b/title/Animal-Farm-L.jpg"
-                    alt="Hayvonlar fermasi kitobi"
-                    onerror="this.style.display='none'"
-                >
-                <div class="book-info">
-                    <span class="genre">Roman</span>
-                    <h3>Hayvonlar fermasi</h3>
-                    <p class="author">Jorj Oruell</p>
-                    <button class="details"
-                        onclick="showDetails('Hayvonlar fermasi', 'Jorj Oruell', 'Jamiyat va hokimiyat haqida ramziy asar.')">
-                        Batafsil
-                    </button>
-                </div>
-            </article>
-
-            <article class="book" data-genre="Tarix">
-                <img
-                    src="https://covers.openlibrary.org/b/title/Boburnoma-L.jpg"
-                    alt="Boburnoma kitobi"
-                    onerror="this.style.display='none'"
-                >
-                <div class="book-info">
-                    <span class="genre">Tarix</span>
-                    <h3>Boburnoma</h3>
-                    <p class="author">Zahiriddin Muhammad Bobur</p>
-                    <button class="details"
-                        onclick="showDetails('Boburnoma', 'Zahiriddin Muhammad Bobur', 'Tarixiy voqealar va muallif hayotiga oid nodir asar.')">
-                        Batafsil
-                    </button>
-                </div>
-            </article>
-
-            <article class="book" data-genre="Ilm">
-                <img
-                    src="https://covers.openlibrary.org/b/title/A-Brief-History-of-Time-L.jpg"
-                    alt="Vaqtning qisqacha tarixi kitobi"
-                    onerror="this.style.display='none'"
-                >
-                <div class="book-info">
-                    <span class="genre">Ilm-fan</span>
-                    <h3>Vaqtning qisqacha tarixi</h3>
-                    <p class="author">Stiven Xoking</p>
-                    <button class="details"
-                        onclick="showDetails('Vaqtning qisqacha tarixi', 'Stiven Xoking', 'Koinot, vaqt va fizika haqida ilmiy-ommabop kitob.')">
-                        Batafsil
-                    </button>
-                </div>
-            </article>
-
-            <article class="book" data-genre="Bolalar">
-                <img
-                    src="https://covers.openlibrary.org/b/title/The-Little-Prince-L.jpg"
-                    alt="Kichkina shahzoda kitobi"
-                    onerror="this.style.display='none'"
-                >
-                <div class="book-info">
-                    <span class="genre">Bolalar</span>
-                    <h3>Kichkina shahzoda</h3>
-                    <p class="author">Antuan de Sent-Ekzyuperi</p>
-                    <button class="details"
-                        onclick="showDetails('Kichkina shahzoda', 'Antuan de Sent-Ekzyuperi', 'Do‘stlik, mehr va hayot qadri haqida qissa.')">
-                        Batafsil
-                    </button>
-                </div>
-            </article>
-
-            <article class="book" data-genre="Tarix">
-                <img
-                    src="https://covers.openlibrary.org/b/title/Temur-Tuzuklari-L.jpg"
-                    alt="Temur tuzuklari kitobi"
-                    onerror="this.style.display='none'"
-                >
-                <div class="book-info">
-                    <span class="genre">Tarix</span>
-                    <h3>Temur tuzuklari</h3>
-                    <p class="author">Amir Temurga nisbat beriladi</p>
-                    <button class="details"
-                        onclick="showDetails('Temur tuzuklari', 'Amir Temurga nisbat beriladi', 'Davlat boshqaruvi va harbiy tartiblar haqidagi tarixiy manba.')">
-                        Batafsil
-                    </button>
-                </div>
-            </article>
-
-            <article class="book" data-genre="Ilm">
-                <img
-                    src="https://covers.openlibrary.org/b/title/Cosmos-Carl-Sagan-L.jpg"
-                    alt="Kosmos kitobi"
-                    onerror="this.style.display='none'"
-                >
-                <div class="book-info">
-                    <span class="genre">Ilm-fan</span>
-                    <h3>Kosmos</h3>
-                    <p class="author">Karl Sagan</p>
-                    <button class="details"
-                        onclick="showDetails('Kosmos', 'Karl Sagan', 'Koinot va undagi hodisalarni tushuntiruvchi ilmiy kitob.')">
-                        Batafsil
-                    </button>
-                </div>
-            </article>
-
-        </div>
-
-        <p id="noResults">Kitob topilmadi. Boshqa so‘z bilan qidirib ko‘ring.</p>
-    </main>
-
-    <section class="about" id="about">
-        <h2>Biz haqimizda</h2>
-        <p>
-            Kitoblar Olami — kitobsevarlar uchun yaratilgan
-            elektron kutubxona namunasi.
-        </p>
-        <p>
-            Bizning maqsadimiz — kitob o‘qishga bo‘lgan qiziqishni oshirish
-            va bilim olishni osonlashtirish.
-        </p>
-    </section>
-
-    <footer>
-        <p>© 2026 Kitoblar Olami | Barcha huquqlar himoyalangan.</p>
-    </footer>
-
-    <script>
-        let selectedGenre = "Barchasi";
-
-        function searchBooks() {
-            const input = document
-                .getElementById("searchInput")
-                .value.toLowerCase().trim();
-
-            const books = document.querySelectorAll(".book");
-            let count = 0;
-
-            books.forEach(book => {
-                const text = book.innerText.toLowerCase();
-                const genre = book.dataset.genre;
-
-                const matchesSearch = text.includes(input);
-                const matchesGenre =
-                    selectedGenre === "Barchasi" ||
-                    genre === selectedGenre;
-
-                const visible = matchesSearch && matchesGenre;
-
-                book.style.display = visible ? "" : "none";
-
-                if (visible) count++;
-            });
-
-            document.getElementById("noResults").style.display =
-                count === 0 ? "block" : "none";
-        }
-
-        function filterBooks(genre, button) {
-            selectedGenre = genre;
-
-            document.querySelectorAll(".category").forEach(btn => {
-                btn.classList.remove("active");
-            });
-
-            button.classList.add("active");
-            searchBooks();
-        }
-
-        document.getElementById("searchInput")
-            .addEventListener("input", searchBooks);
-
-        function showDetails(title, author, description) {
-            alert(
-                "Kitob: " + title +
-                "\nMuallif: " + author +
-                "\n\n" + description
-            );
-        }
-    </script>
+        <iframe
+            src="kitob.pdf"
+            title="Kitob PDF ko‘rinishi">
+        </iframe>
+    </div>
+</div>
 
 </body>
 </html>
